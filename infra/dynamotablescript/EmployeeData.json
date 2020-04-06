@@ -1,0 +1,33 @@
+{
+    "TableName": "Employee",
+    "KeySchema": [
+      { "AttributeName": "EmployeeId", "KeyType": "HASH" },
+      { "AttributeName": "EmployeeFName", "KeyType": "RANGE" }
+    ],
+    "AttributeDefinitions": [
+      { "AttributeName": "EmployeeId", "AttributeType": "S" },
+      { "AttributeName": "EmployeeFName", "AttributeType": "S" },
+	  { "AttributeName": "EmployeedeptNumber", "AttributeType": "N" }
+
+    ],
+    "ProvisionedThroughput": {
+      "ReadCapacityUnits": 5,
+      "WriteCapacityUnits": 5
+    },
+	"LocalSecondaryIndexes" :[{
+          "IndexName" : "empDept",
+          "KeySchema" : [
+            {
+              "AttributeName" : "EmployeeId",
+              "KeyType" : "HASH"
+            },
+            {
+              "AttributeName" : "EmployeedeptNumber",
+              "KeyType" : "RANGE"
+            }
+          ],                           
+          "Projection" : {
+            "ProjectionType" : "ALL"
+          }
+        }]
+}
