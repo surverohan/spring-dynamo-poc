@@ -1,7 +1,8 @@
-#DynanoDB
+# DynanoDB
 Below steps for windows only
 
 1)Download  DynamoDB local instance
+
 2) Start DynamoDB
 java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -sharedDb
 
